@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
+import Form from "react-bootstrap/Form";
 
 function Todo({ name, index, setTodos }) {
   const [modifyOn, setModifyOn] = useState(false);
@@ -56,24 +57,27 @@ function Todo({ name, index, setTodos }) {
   return (
     <div className="p-2">
       <Row>
-        <Col className="col-lg-8">
+        <Col xs="auto" lg="8">
           {modifyOn ? (
-            <input
-              type="text"
-              value={text}
-              onChange={change}
-              onBlur={blur}
-              ref={refInput}
-            />
+            <Form.Group>
+            
+              <Form.Control
+                type="text"
+                value={text}
+                onChange={change}
+                onBlur={blur}
+                ref={refInput}
+              />
+            
+            </Form.Group>
           ) : (
-            <span>{text}</span>
+            <span className="col-lg-9">{text}</span>
           )}
         </Col>
-        <Col>
-        <button onClick={modify}>Modify</button>
-        </Col>
-        <Col>
-        <button onClick={remove}>Remove</button>
+        <Col className="d-flex justify-content-end">
+          <button onClick={modify}>Modify</button>
+        
+          <button onClick={remove}>Remove</button>
         </Col>
       </Row>
     </div>

@@ -39,9 +39,9 @@ function App() {
         <Row className="mb-5 mt-5">
           <Form className="mt-3">
             <Row>
-              <Col lg="8" className="ms-auto me-auto">
-                <Row>
-                  <Col>
+              
+               
+                  <Col xs="auto" lg="8">
                     <Form.Group>
                       <Form.Control
                         type="text"
@@ -51,13 +51,13 @@ function App() {
                       />
                     </Form.Group>
                   </Col>
-                  <Col xs="auto">
+                  <Col xs="auto" lg="4">
                     <Button variant="primary" type="submit" onClick={add}>
                       Add Todo
                     </Button>
                   </Col>
-                </Row>
-              </Col>
+                
+              
             </Row>
           </Form>
         </Row>
