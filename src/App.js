@@ -36,31 +36,36 @@ function App() {
     <>
       <NavbarComponent />
       <Container>
-        <Form className="mt-3">
-          <Row>
-            <Col lg="8" className="ms-auto me-auto">
-              <Row>
-                <Col >
-                  <Form.Group>
-                    <Form.Control
-                      type="text"
-                      name="todoInput"
-                      id="todoInput"
-                      placeholder="Add your todo"
-                    />
-                  </Form.Group>
-                </Col>
-                <Col xs="auto">
-                  <Button variant="primary" type="submit" onClick={add}>
-                    Add Todo
-                  </Button>
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Form>
-
-        <Todos todos={todos} setTodos={setTodos} />
+        <Row className="mb-5 mt-5">
+          <Form className="mt-3">
+            <Row>
+              <Col lg="8" className="ms-auto me-auto">
+                <Row>
+                  <Col>
+                    <Form.Group>
+                      <Form.Control
+                        type="text"
+                        name="todoInput"
+                        id="todoInput"
+                        placeholder="Add your todo"
+                      />
+                    </Form.Group>
+                  </Col>
+                  <Col xs="auto">
+                    <Button variant="primary" type="submit" onClick={add}>
+                      Add Todo
+                    </Button>
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Form>
+        </Row>
+        <Row>
+          <Col lg="8" className="ms-auto me-auto">
+            <Todos todos={todos} setTodos={setTodos} />
+          </Col>
+        </Row>
       </Container>
     </>
   );
