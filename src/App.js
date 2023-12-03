@@ -9,6 +9,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/esm/Button";
 import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -36,29 +37,21 @@ function App() {
     <>
       <NavbarComponent />
       <Container>
-        <Row className="mb-5 mt-5">
+        <Row className="mb-5 mt-5 col-lg-8 ms-auto me-auto">
           <Form className="mt-3">
-            <Row>
-              
-               
-                  <Col xs="auto" lg="8">
-                    <Form.Group>
-                      <Form.Control
-                        type="text"
-                        name="todoInput"
-                        id="todoInput"
-                        placeholder="Add your todo"
-                      />
-                    </Form.Group>
-                  </Col>
-                  <Col xs="auto" lg="4">
-                    <Button variant="primary" type="submit" onClick={add}>
-                      Add Todo
-                    </Button>
-                  </Col>
-                
-              
-            </Row>
+            
+              <InputGroup>
+                <Form.Control
+                  type="text"
+                  name="todoInput"
+                  id="todoInput"
+                  placeholder="Add your todo"
+                />
+                <Button variant="primary" type="submit" onClick={add}>
+                  Add Todo
+                </Button>
+              </InputGroup>
+            
           </Form>
         </Row>
         <Row>

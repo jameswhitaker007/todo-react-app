@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/esm/Button";
+import InputGroup from "react-bootstrap/InputGroup";
 
 function Todo({ name, index, setTodos }) {
   const [modifyOn, setModifyOn] = useState(false);
@@ -29,8 +31,10 @@ function Todo({ name, index, setTodos }) {
     });
   }
 
-  function modify() {
-    setModifyOn(!modifyOn);
+  function modify(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    setModifyOn(true);
   }
 
   function change(event) {
@@ -60,7 +64,6 @@ function Todo({ name, index, setTodos }) {
         <Col xs="auto" lg="8">
           {modifyOn ? (
             <Form.Group>
-            
               <Form.Control
                 type="text"
                 value={text}
@@ -68,16 +71,33 @@ function Todo({ name, index, setTodos }) {
                 onBlur={blur}
                 ref={refInput}
               />
-            
             </Form.Group>
           ) : (
             <span className="col-lg-9">{text}</span>
           )}
         </Col>
         <Col className="d-flex justify-content-end">
-          <button onClick={modify}>Modify</button>
-        
-          <button onClick={remove}>Remove</button>
+          {modifyOn ? (
+            <Button variant="success" onClick={(e) => {
+              console.log(modifyOn);
+              e.preventDefault();
+              e.stopPropagation();
+              setModifyOn(false);
+            console.log(modifyOn)}}>Save</Button>
+          ) : (
+            <Button variant="outline-secondary" onClick={(e) => {
+             console.log(modifyOn)
+              e.preventDefault();
+              e.stopPropagation();
+              setModifyOn(true)
+              console.log(modifyOn)}}>
+              Edit
+            </Button>
+          )}
+
+          <Button variant="outline-danger ms-2" onClick={remove}>
+            Delete
+          </Button>
         </Col>
       </Row>
     </div>
